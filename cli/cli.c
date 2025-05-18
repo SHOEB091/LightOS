@@ -20,6 +20,8 @@
 #include "commands/accessibility_commands.h"
 #include "commands/iot_commands.h"
 #include "commands/mobile_commands.h"
+#include "commands/security_commands.h"
+#include "commands/system_commands.h"
 
 // Maximum command length
 #define MAX_COMMAND_LENGTH 256
@@ -61,6 +63,12 @@ void cli_init() {
 
     // Register mobile commands
     register_mobile_commands();
+
+    // Register security commands
+    register_security_commands();
+
+    // Register system commands
+    register_system_commands();
 }
 
 // Run the CLI
@@ -282,6 +290,26 @@ void cli_execute_command(char* command) {
         ios_command(arg_count, args);
     } else if (cli_strcmp(args[0], "mobile-sync") == 0) {
         mobile_sync_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "security") == 0) {
+        security_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "user") == 0) {
+        user_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "group") == 0) {
+        group_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "firewall") == 0) {
+        firewall_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "crypto") == 0) {
+        crypto_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "system") == 0) {
+        system_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "package") == 0) {
+        package_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "update") == 0) {
+        update_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "backup") == 0) {
+        backup_command(arg_count, args);
+    } else if (cli_strcmp(args[0], "monitor") == 0) {
+        monitor_command(arg_count, args);
     } else {
         // Unknown command
         terminal_write("Unknown command: ");
@@ -369,6 +397,16 @@ void cli_cmd_help() {
     terminal_write("  android    - Android device management commands\n");
     terminal_write("  ios        - iOS device management commands\n");
     terminal_write("  mobile-sync - Mobile device synchronization commands\n");
+    terminal_write("  security   - Security management commands\n");
+    terminal_write("    user     - User management commands\n");
+    terminal_write("    group    - Group management commands\n");
+    terminal_write("    firewall - Firewall management commands\n");
+    terminal_write("    crypto   - Cryptography commands\n");
+    terminal_write("  system     - System management commands\n");
+    terminal_write("    package  - Package management commands\n");
+    terminal_write("    update   - System update commands\n");
+    terminal_write("    backup   - Backup and restore commands\n");
+    terminal_write("    monitor  - System monitoring commands\n");
 }
 
 // Clear command

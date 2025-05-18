@@ -1,0 +1,74 @@
+# Build artifacts
+build/
+*.o
+*.obj
+*.bin
+*.iso
+*.img
+*.elf
+*.map
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*~
+.project
+.cproject
+.settings/
+*.sublime-*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+.directory
+desktop.ini
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.backup
+*.save
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Compiled libraries
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Toolchain build artifacts
+tools/build/
+tools/downloads/
+tools/cross/
+
+# QEMU disk images
+*.qcow2
+*.vmdk
+
+# Documentation generated files
+docs/generated/
+
+# User-specific configuration
+config.user.mk

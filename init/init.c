@@ -21,6 +21,13 @@
 #include "../localization/localization_manager.h"
 #include "../iot/iot_manager.h"
 #include "../mobile/mobile_manager.h"
+#include "../security/security_manager.h"
+#include "../security/firewall.h"
+#include "../security/crypto/crypto.h"
+#include "../package/package_manager.h"
+#include "../system/update_manager.h"
+#include "../system/backup_manager.h"
+#include "../system/monitor_manager.h"
 
 // Boot splash screen
 static const char* boot_splash[] = {
@@ -112,6 +119,34 @@ void init_system() {
     // Initialize mobile manager
     terminal_write("Initializing mobile manager...\n");
     mobile_manager_init();
+
+    // Initialize security manager
+    terminal_write("Initializing security manager...\n");
+    security_manager_init();
+
+    // Initialize cryptography
+    terminal_write("Initializing cryptography...\n");
+    crypto_init();
+
+    // Initialize firewall
+    terminal_write("Initializing firewall...\n");
+    firewall_init();
+
+    // Initialize package manager
+    terminal_write("Initializing package manager...\n");
+    package_manager_init();
+
+    // Initialize update manager
+    terminal_write("Initializing update manager...\n");
+    update_manager_init();
+
+    // Initialize backup manager
+    terminal_write("Initializing backup manager...\n");
+    backup_manager_init();
+
+    // Initialize monitor manager
+    terminal_write("Initializing monitor manager...\n");
+    monitor_manager_init();
 
     // Initialize CLI
     terminal_write("Initializing CLI...\n");
